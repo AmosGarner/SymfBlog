@@ -1,0 +1,27 @@
+# src/BlogBundle/Resources/config/doctrine/Blog.orm.yml
+BlogBundle\Entity\Blog:
+    type: entity
+    table:  SymfBlog_Blog
+    id:
+      id:
+        type: integer
+        generator: { strategy: AUTO }
+    fields:
+      name:
+        type: string
+        length: 50
+
+      description:
+        type: text
+
+      createdDate:
+        type: datetime
+
+      lastUpdatedDate:
+        type: datetime
+
+      lastPostedDate:
+        type: datetime
+
+      isPublished:
+        type: boolean
