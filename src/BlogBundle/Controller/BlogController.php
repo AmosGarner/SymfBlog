@@ -8,11 +8,21 @@
 
 namespace BlogBundle\Controller;
 
+use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends ApiController
 {
-    public function indexAction($blogId){
+
+    public function createAction(Request $request){
+
+    }
+
+    public function modifyAction(Request $request){
+
+    }
+
+    public function readAction($blogId){
         $em = $this->getDoctrine()->getManager();
         $blogRepository = $em->getRepository('BlogBundle:Blog');
         $blog = $blogRepository->findOneBy(['id' => $blogId]);
@@ -23,5 +33,9 @@ class BlogController extends ApiController
         else{
             return $this->generateApiResponse([], Response::HTTP_NOT_FOUND, "That blog does not exist");
         }
+    }
+
+    public function deleteAction($blogId){
+
     }
 }

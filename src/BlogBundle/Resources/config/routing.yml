@@ -1,7 +1,7 @@
-blog_api_list:
-    path: /blogs/{blogId}
+blog_api_read:
+    path: /blog/api/read/{blogId}
     methods: [GET]
     defaults:
-        _controller: BlogBundle:Blog:index
+        _controller: BlogBundle:Blog:read
     requirements:
         blogId:   \d+
