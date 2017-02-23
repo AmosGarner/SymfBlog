@@ -15,11 +15,23 @@ class BlogController extends ApiController
 {
 
     public function createAction(Request $request){
-
+        return $this->modifyAction($request);
     }
 
-    public function modifyAction(Request $request){
+    public function modifyAction(Request $request, $blogId = ""){
+        $em = $this->getDoctrine()->getManager();
+        $blogRepository = $em->getRepository('BlogBundle:Blog');
+        $requestData = $request->request->all();
 
+        if($blogId){
+            //modify function
+            dump($requestData);
+        }
+        else{
+            //create function
+            dump($requestData);
+        }
+        die();
     }
 
     public function readAction($blogId){
