@@ -4,3 +4,7 @@ user:
 
 fos_user:
     resource: "@FOSUserBundle/Resources/config/routing/all.xml"
+
+blog:
+    resource: "@BlogBundle/Resources/config/routing.yml"
+    prefix:   /

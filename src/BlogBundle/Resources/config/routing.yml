@@ -1,0 +1,22 @@
+blog_api_read:
+    path: /blog/api/read/{blogId}
+    methods: [GET]
+    defaults:
+        _controller: BlogBundle:Blog:read
+    requirements:
+        blogId:   \d+
+
+blog_api_create:
+    path: /blog/api/create
+    methods: [POST]
+    defaults:
+        _controller: BlogBundle:Blog:create
+
+blog_api_modify:
+    path: /blog/api/modify/{blogId}
+    methods: [PUT]
+    defaults:
+        _controller: BlogBundle:Blog:modify
+    requirements:
+        blogId:   \d+
+
