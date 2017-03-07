@@ -1,0 +1,31 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/AppBundle.css') }}">
+{% endblock %}
+d
+{% block body %}
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+
+                {% include '@App/App/navigation.html.twig' with {'activePage' : 'About'}  %}
+
+                <div class="inner cover">
+                    <div class="panel-heading">About SymfBlog</div>
+                    <div class="panel-body">
+                        <p>
+                            ...
+                        </p>
+                    </div>
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}
