@@ -4,6 +4,7 @@
     {{ parent() }}
     <link rel="stylesheet" href="{{ asset('css/AppBundle.css') }}">
 {% endblock %}
+
 {% block body %}
     <div class="site-wrapper">
 
@@ -11,22 +12,56 @@
 
             <div class="cover-container">
 
-                <div class="masthead clearfix">
-                    <div class="inner">
-                        <h3 class="masthead-brand">
-                            <a href="{{ path('app_homepage') }}">
-                                SymfBlog
-                            </a>
-                        </h3>
-                        <nav>
-                            <ul class="nav masthead-nav">
-                                <li class="active"><a href="{{ path('app_homepage') }}">
-                                        <span class="glyphicon glyphicon-home"></span> Home</a>
-                                </li>
-                                <li><a href="#">About</a></li>
-                                <li><a href="#">Contact</a></li>
-                            </ul>
-                        </nav>
+                {% include '@App/App/navigation.html.twig' with {'activePage' : 'Home'}  %}
+
+                <div class="inner cover">
+
+                    <div class="row">
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Login</div>
+                                <div class="panel-body">
+                                    <p>
+                                        <a class="btn btn-primary btn-lg" href="{{ path('fos_user_security_login') }}" role="button">Login</a>
+                                    </p>
+                                    <a>Forgot Password?</a>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-6">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Signup</div>
+                                <div class="panel-body">
+                                    <p>
+                                        <a class="btn btn-primary btn-lg" href="{{ path('fos_user_registration_register') }}" role="button">Signup</a>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row">
+                        <div class="col-xs-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Recent Blog Posts</div>
+                                <div class="panel-body">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Top Viewed Blog Posts</div>
+                                <div class="panel-body">
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-xs-4">
+                            <div class="panel panel-default">
+                                <div class="panel-heading">Top Authors</div>
+                                <div class="panel-body">
+                                </div>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
