@@ -10,4 +10,8 @@ class AppController extends Controller
     {
         return $this->render('AppBundle:App:index.html.twig');
     }
+
+    public function aboutAction(){
+        return $this->render('@App/App/about.html.twig');
+    }
 }

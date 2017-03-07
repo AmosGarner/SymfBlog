@@ -11,13 +11,13 @@
                     {% if activePage == "Home" %}
                         <li class="active"><a href="{{ path('app_homepage') }}"><span class="glyphicon glyphicon-home"></span> Home</a></li>
                     {% else %}
-                        <li><a href="#">Home</a></li>
+                        <li><a href="{{ path('app_homepage') }}">Home</a></li>
                     {% endif %}
 
                     {% if activePage == "About" %}
-                        <li class="active"><a href="{{ path('app_homepage') }}"></span> About</a></li>
+                        <li class="active"><a href="{{ path('app_about') }}"></span> About</a></li>
                     {% else %}
-                        <li><a href="#">About</a></li>
+                        <li><a href="{{ path('app_about') }}">About</a></li>
                     {% endif %}
                 </ul>
             </nav>
