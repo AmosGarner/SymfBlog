@@ -19,6 +19,20 @@
                     {% else %}
                         <li><a href="{{ path('app_about') }}">About</a></li>
                     {% endif %}
+
+                    {% if app.user is null %}
+                        <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                    {% endif %}
+
+                    {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
+                        <li>
+                            <a href="{{ path('fos_user_profile_show') }}">{{ app.user }}'s Profile</a>
+                        </li>
+                        <li>
+                            <a href="{{ path('fos_user_security_logout') }}">Logout</a>
+                        </li>
+                    {% endif %}
+
                 </ul>
             </nav>
         </div>

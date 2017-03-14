@@ -1,4 +1,4 @@
-{% extends ':AppBundle:layout.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block stylesheets %}
     {{ parent() }}
@@ -24,7 +24,6 @@
                                     <p>
                                         <a class="btn btn-primary btn-lg" href="{{ path('fos_user_security_login') }}" role="button">Login</a>
                                     </p>
-                                    <a>Forgot Password?</a>
                                 </div>
                             </div>
                         </div>
