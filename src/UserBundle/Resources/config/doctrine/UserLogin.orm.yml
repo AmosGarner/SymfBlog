@@ -1,0 +1,19 @@
+UserBundle\Entity\UserLogin:
+    type:  entity
+    table: user_login_log
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+    manyToOne:
+        user_Id:
+            targetEntity: UserBundle\Entity\User
+            joinColumn:
+                name: user_id
+                referencedColumnName: id
+    fields:
+        attempted_datetime:
+            type: datetime
+        is_succesful:
+            type: boolean
