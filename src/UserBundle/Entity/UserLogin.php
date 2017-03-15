@@ -16,7 +16,6 @@ class UserLogin
     private $id;
     private $user_Id;
     private $attempted_datetime;
-    private $is_succesful;
 
     /**
      * UserLogin constructor.
@@ -72,22 +71,6 @@ class UserLogin
     public function setAttemptedDatetime($attempted_datetime)
     {
         $this->attempted_datetime = $attempted_datetime;
-    }
-
-    /**
-     * @return mixed
-     */
-    public function getIsSuccesful()
-    {
-        return $this->is_succesful;
-    }
-
-    /**
-     * @param mixed $is_succesful
-     */
-    public function setIsSuccesful($is_succesful)
-    {
-        $this->is_succesful = $is_succesful;
     }
 
 }
