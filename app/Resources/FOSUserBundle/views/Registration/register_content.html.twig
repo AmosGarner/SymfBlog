@@ -1,8 +1,45 @@
 {% trans_default_domain 'FOSUserBundle' %}
 
-{{ form_start(form, {'method': 'post', 'action': path('fos_user_registration_register'), 'attr': {'class': 'fos_user_registration_register'}}) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'registration.submit'|trans }}" />
+<div class="form-container">
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <h1>Register an Account:</h1><br>
+            <form action="{{ path('fos_user_registration_register') }}" method="POST">
+                {{ form_start(form) }}
+
+                <div class="form-group">
+                    <lable>Email</lable>
+                    {{ form_widget(form.email, { 'attr': {'class': 'form-control' } }) }}
+                    {{ form_errors(form.email) }}
+                </div>
+
+                <div class="form-group">
+                    <lable for="username">Username</lable>
+                    {{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }}
+                    {{ form_errors(form.username) }}
+                </div>
+
+                <div class="form-group">
+                    <lable>Password</lable>
+                    {{ form_widget(form.plainPassword.first, { 'attr': {'class': 'form-control'} }) }}
+                    {{ form_errors(form.plainPassword.first) }}
+                </div>
+
+                <div class="form-group">
+                    <lable>Confirm Password</lable>
+                    {{ form_widget(form.plainPassword.second, { 'attr': {'class': 'form-control' } }) }}
+                    {{ form_errors(form.plainPassword.second) }}
+                </div>
+
+                <div>
+                    <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
+                </div>
+
+                {{ form_end(form) }}
+            </form>
+            <div class="login-help">
+                <a href="{{ path('fos_user_security_login') }}">Login to an existing Account</a></a>
+            </div>
+        </div>
     </div>
-{{ form_end(form) }}
+</div>
