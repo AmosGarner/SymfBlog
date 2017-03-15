@@ -22,6 +22,7 @@
 
                     {% if app.user is null %}
                         <li><a href="{{ path('fos_user_security_login') }}">Login</a></li>
+                        <li><a href="{{ path('fos_user_registration_register') }}">Register</a></li>
                     {% endif %}
 
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
