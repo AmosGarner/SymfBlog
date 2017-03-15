@@ -15,5 +15,3 @@ UserBundle\Entity\UserLogin:
     fields:
         attempted_datetime:
             type: datetime
-        is_succesful:
-            type: boolean
