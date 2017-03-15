@@ -12,6 +12,7 @@ UserBundle\Entity\UserLogin:
             joinColumn:
                 name: user_id
                 referencedColumnName: id
+                onDelete: cascade
     fields:
         attempted_datetime:
             type: datetime
