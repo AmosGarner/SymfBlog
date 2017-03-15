@@ -96,6 +96,11 @@ a{
 }
 
 
+.form-container{
+    display: flex;
+    justify-content: center;
+}
+
 
 .mastfoot {
     color: #999; /* IE8 proofing */
