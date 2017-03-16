@@ -1,0 +1,35 @@
+<div class="profile-content-container col-md-2">
+    <h3>Actions Menu:</h3>
+    <ul class="nav nav-pills nav-stacked">
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Profile Actions <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li role="presentation" class=""><a href="#">Profile Information</a></li>
+                <li role="presentation" class=""><a href="#">Edit Profile</a></li>
+                <li role="presentation" class=""><a href="#">Change Password</a></li>
+                <li role="presentation" class=""><a href="#">Disable Account</a></li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Blog Actions <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li role="presentation" class=""><a href="#">View Blogs</a></li>
+                <li role="presentation" class=""><a href="#">Create a Blog</a></li>
+            </ul>
+        </li>
+        <li role="presentation" class="dropdown">
+            <a class="dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">
+                Post Actions <span class="caret"></span>
+            </a>
+            <ul class="dropdown-menu">
+                <li role="presentation" class=""><a href="#">View Posts</a></li>
+                <li role="presentation" class=""><a href="#">Create a Post</a></li>
+            </ul>
+        </li>
+        <li role="presentation" class=""><a href="{{ path('fos_user_security_logout') }}">Logout</a></li>
+    </ul>
+</div>
