@@ -1,27 +1,5 @@
-blog_api_read:
-    path: /blog/api/read/{blogId}
-    methods: [GET]
-    defaults:
-        _controller: BlogBundle:Blog:read
-    requirements:
-        blogId:   \d+
+blog_api:
+    resource: "routes/api_routing.yml"
 
-blog_api_create:
-    path: /blog/api/create
-    methods: [POST]
-    defaults:
-        _controller: BlogBundle:Blog:create
-
-blog_api_modify:
-    path: /blog/api/modify/{blogId}
-    methods: [PUT]
-    defaults:
-        _controller: BlogBundle:Blog:modify
-    requirements:
-        blogId:   \d+
-
-blog_front_end_list:
-    path: /blog/list
-    methods: [GET]
-    defaults:
-        _controller: BlogBundle:FrontEnd:list
+blog_front_end:
+    resource: "routes/front_end_routing.yml"

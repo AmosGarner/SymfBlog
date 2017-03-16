@@ -1,0 +1,24 @@
+blog_front_end_list:
+    path: /blog/list
+    defaults:
+        _controller: BlogBundle:FrontEnd:list
+
+blog_front_end_read:
+    path: /blog/read
+    defaults:
+        _controller: BlogBundle:FrontEnd:read
+
+blog_front_end_create:
+    path: /blog/create
+    defaults:
+        _controller: BlogBundle:FrontEnd:create
+
+blog_front_end_modify:
+    path: /blog/modify
+    defaults:
+        _controller: BlogBundle:FrontEnd:modify
+
+blog_front_end_delete:
+    path: /blog/delete
+    defaults:
+        _controller: BlogBundle:FrontEnd:delete

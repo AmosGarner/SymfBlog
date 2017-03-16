@@ -17,4 +17,26 @@ class FrontEndController extends Controller
         $em = $this->getDoctrine()->getManager();
         return $this->render('@Blog/Blog/list.html.twig');
     }
+
+    public function readAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('@Blog/Blog/read.html.twig');
+    }
+
+    public function createAction(){
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('@Blog/Blog/modify.html.twig');
+    }
+
+    public function modifyAction(){
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('@Blog/Blog/modify.html.twig');
+    }
+
+    public function deleteAction()
+    {
+        $em = $this->getDoctrine()->getManager();
+        return $this->render('@Blog/Blog/delete.html.twig');
+    }
 }
