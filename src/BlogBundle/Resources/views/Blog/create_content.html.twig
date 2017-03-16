@@ -13,7 +13,35 @@
                 </div>
             </div>
 
-            <div class="form-container">
+            <div class="well form-container">
+                <form action="{{ path('blog_api_create') }}" method="post">
+                {{ form_start(form) }}
+                    <div class="form-group">
+                        <label>Blog Name:</label>
+                        {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'placeholder': 'Some Blog Name' }}) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Blog Description:</label>
+                        {{ form_widget(form.description, {
+                            'attr': {
+                                'class': 'form-control form-control-lg',
+                                'placeholder': 'Enter a description...',
+                                'rows': '3'
+                            }
+                        }) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+                    <div>
+                        <a class="btn btn-danger" href="{{ path('blog_front_end_list') }}"><i class="glyphicon glyphicon-remove"></i> Cancel</a>
+                        {{ form_widget(form.submit, {
+                            'attr': {
+                                'class': 'btn btn-success'
+                            }
+                        }) }}
+                    </div>
+                {{ form_end(form) }}
+                </form>
 
             </div>
 

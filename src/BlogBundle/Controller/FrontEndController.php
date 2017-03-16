@@ -9,7 +9,12 @@
 namespace BlogBundle\Controller;
 
 
+use BlogBundle\Entity\Blog;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
+use Symfony\Component\Form\Extension\Core\Type\SubmitType;
+use Symfony\Component\Form\Extension\Core\Type\TextareaType;
+use Symfony\Component\Form\Extension\Core\Type\TextType;
+use Symfony\Component\Validator\Constraints\Length;
 
 class FrontEndController extends Controller
 {
@@ -25,8 +30,21 @@ class FrontEndController extends Controller
     }
 
     public function createAction(){
-        $em = $this->getDoctrine()->getManager();
-        return $this->render('@Blog/Blog/create.html.twig');
+        $blog = new Blog();
+
+        $form = $this->createFormBuilder($blog)
+            ->add('name', TextType::class, array(
+                'constraints' => new Length(array('min' => 5))
+            ))
+            ->add('description', TextareaType::class, array(
+                'constraints' => new Length(array('min' => 5, 'max' => 250))
+            ))
+            ->add('submit', SubmitType::class, array('label' => 'Create Blog'))
+            ->getForm();
+
+        return $this->render('@Blog/Blog/create.html.twig', array(
+            'form' => $form->createView(),
+        ));
     }
 
     public function modifyAction(){
