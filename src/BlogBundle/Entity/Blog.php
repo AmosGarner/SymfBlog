@@ -8,7 +8,8 @@
 
 namespace BlogBundle\Entity;
 
-use Symfony\Component\Validator\Constraints\DateTime;
+
+use DateTime;
 
 class Blog
 {
@@ -28,6 +29,7 @@ class Blog
     {
         $this->createdDate = new DateTime();
         $this->lastUpdatedDate = new DateTime();
+        $this->isPublished = false;
         return $this;
     }
 
