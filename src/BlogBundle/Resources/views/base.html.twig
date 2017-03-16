@@ -1,0 +1,29 @@
+{% extends 'base.html.twig' %}
+
+{% block stylesheets %}
+    {{ parent() }}
+    <link rel="stylesheet" href="{{ asset('css/SymfBlogCore.css') }}">
+    <link rel="stylesheet" href="{{ asset('css/BlogStyles.css') }}">
+{% endblock %}
+
+{% block body %}
+    <div class="site-wrapper">
+
+        <div class="site-wrapper-inner">
+
+            <div class="cover-container">
+
+                {% include '@App/App/navigation.html.twig' with {'activePage' : 'Home'}  %}
+
+                <div class="inner cover">
+
+                    {% block blog_content %}{% endblock %}
+
+                </div>
+
+            </div>
+
+        </div>
+
+    </div>
+{% endblock %}

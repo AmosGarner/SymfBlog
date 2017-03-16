@@ -1,1 +1,5 @@
-This will be the blog list template
+{% extends '@Blog/base.html.twig' %}
+
+{% block blog_content %}
+    {% include '@Blog/Blog/list_content.html.twig' %}
+{% endblock %}
