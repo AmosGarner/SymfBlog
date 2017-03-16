@@ -29,6 +29,7 @@ BlogBundle\Entity\Blog:
 
       lastPostedDate:
         type: datetime
+        nullable: true
 
       isPublished:
         type: boolean
