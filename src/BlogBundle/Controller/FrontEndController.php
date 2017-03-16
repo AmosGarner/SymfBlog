@@ -26,7 +26,7 @@ class FrontEndController extends Controller
 
     public function createAction(){
         $em = $this->getDoctrine()->getManager();
-        return $this->render('@Blog/Blog/modify.html.twig');
+        return $this->render('@Blog/Blog/create.html.twig');
     }
 
     public function modifyAction(){
