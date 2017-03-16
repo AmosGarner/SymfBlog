@@ -1,0 +1,13 @@
+.profile-container{
+    padding: 1%;
+}
+
+.profile-content-container{
+    background-color: white;
+    border-radius: 15px;
+}
+
+.profile-image{
+    display: flex;
+    justify-content: center;
+}
