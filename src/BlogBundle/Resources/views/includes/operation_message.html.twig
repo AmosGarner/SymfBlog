@@ -1,0 +1,13 @@
+{% if response.statusCode is defined %}
+    {% set status = "success" %}
+    {% set content = "Operation completed succesfully!" %}
+    {% if  response.statusCode starts with '3'%}
+        {% set status = "warning" %}
+        {% set content = "Operation completed with warnings!" %}
+    {% elseif  response.statusCode starts with '4'%}
+        {% set status = "danger" %}
+        {% set content = "Operation not completed due to errors!" %}
+    {% endif %}
+
+    <div class="alert alert-{{ status }}">{{ content }}</div>
+{% endif %}
