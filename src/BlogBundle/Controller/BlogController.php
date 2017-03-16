@@ -31,7 +31,12 @@ class BlogController extends ApiController
         $em->persist($blog);
         $em->flush();
 
-        return ($this->generateApiResponse('', 200));
+        $response = $this->generateApiResponse('', 200);
+
+
+        return $this->render('@Blog/Blog/list.html.twig', array(
+            'response' => $response,
+        ));
     }
 
     public function modifyAction(Request $request, $blogId = ""){
