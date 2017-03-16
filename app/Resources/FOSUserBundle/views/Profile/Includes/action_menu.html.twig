@@ -6,9 +6,9 @@
                 Profile Actions <span class="caret"></span>
             </a>
             <ul class="dropdown-menu">
-                <li role="presentation" class=""><a href="#">Profile Information</a></li>
-                <li role="presentation" class=""><a href="#">Edit Profile</a></li>
-                <li role="presentation" class=""><a href="#">Change Password</a></li>
+                <li role="presentation" class=""><a href="{{ path('fos_user_profile_show') }}">Profile Information</a></li>
+                <li role="presentation" class=""><a href="{{ path('fos_user_profile_edit') }}">Edit Profile</a></li>
+                <li role="presentation" class=""><a href="{{ path('fos_user_change_password') }}">Change Password</a></li>
                 <li role="presentation" class=""><a href="#">Disable Account</a></li>
             </ul>
         </li>
