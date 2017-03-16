@@ -4,24 +4,29 @@
     <div class="row">
         {{ include('@FOSUser/Profile/includes/action_menu.html.twig') }}
         <div class="profile-content-container col-md-9 col-md-offset-1">
-            <h1>[Name]'s Profile Information</h1>
+            <h1>{{ app.user }}'s Profile Information</h1>
             <div class="profile-content well">
                     <div class="profile-image">
-                        <img src="http://placehold.it/380X380" alt="" class="img-circle img-responsive" />
+                        <img class="img-circle" src="https://api.adorable.io/avatars/300/{{ app.user }}"/>
                     </div>
                 <br>
                     <div class="profile-info">
-                        <h3>Username: [Username]</h3>
+                        <h3>Username: {{ app.user }}</h3>
                         <h4>Number of Blogs: []</h4>
                         <h4>Number of Posts: []</h4>
-                        <h4>
+                        <h4>Email
                             <a href="#">
                                 <i class="glyphicon glyphicon-envelope"></i>
                             </a>
-                            [email@dom.com]
+                            : {{ app.user.email }}
                         </h4>
                         <h4>Account Created: [date] @ [time]</h4>
-                        <h4>Last Online: [date] @ [time]</h4>
+                        <h4>
+                            Last Online: {{ app.user.lastlogin.date|date('m/d/Y') }}
+                            @
+                            {{ app.user.lastlogin.date|date('h:m') }}
+                        </h4>
+
                     </div>
                 </div>
             </div>
