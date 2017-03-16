@@ -20,3 +20,8 @@ blog_api_modify:
     requirements:
         blogId:   \d+
 
+blog_front_end_list:
+    path: /blog/list
+    methods: [GET]
+    defaults:
+        _controller: BlogBundle:FrontEnd:list
