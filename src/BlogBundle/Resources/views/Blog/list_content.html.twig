@@ -1,18 +1,45 @@
 <div class="container">
     <div class="well">
         <h1>{{ app.user }}'s Blogs</h1>
-        <a href="{{ path('fos_user_profile_show') }}"><i class="glyphicon glyphicon-arrow-left"></i> Back to Profile</a>
     </div>
+
     <div class="panel panel-default">
         <div class="panel-body">
-            <table class="table">
+            <div class="row">
+                <div class="col-md-3">
+                    <p>
+                        <a class="btn btn-lg btn-primary btn-block" href="{{ path('fos_user_profile_show') }}"><i class="glyphicon glyphicon-arrow-left"></i> Back to Profile</a>
+                    </p>
+                </div>
+                <div class="col-md-3 col-md-offset-6">
+                    <p>
+                        <a class="btn btn-lg btn-success btn-block" href="{{ path('blog_front_end_create') }}"><i class="glyphicon glyphicon-plus"></i> Create a Blog</a>
+                    </p>
+                </div>
+            </div>
+            <table class="table table-responsive table-bordered">
                 <thead>
-                <th class="text-center">dsa</th>
-                <th class="text-center">dsa</th>
-                <th class="text-center">dsa</th>
-                <th class="text-center">dsa</th>
+                    <tr>
+                        <th class="text-center">Blog Name:</th>
+                        <th class="text-center">Blog Description</th>
+                        <th class="text-center">Is Published:</th>
+                        <th class="text-center">Actions</th>
+                    </tr>
                 </thead>
+                <tbody>
+                    <tr>
+                        <td>[Blog Name]</td>
+                        <td>[Blog desc]</td>
+                        <td>[T/f]</td>
+                        <td>
+                            <a href="{{ path('blog_front_end_read') }}"><i class="glyphicon glyphicon-eye-open"></i> View</a> |
+                            <a href="{{ path('blog_front_end_modify') }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a> |
+                            <a href="{{ path('blog_front_end_delete') }}"><i class="glyphicon glyphicon-trash"></i> Delete</a> |
+                        </td>
+                    </tr>
+                </tbody>
             </table>
+            {# dump(blogs) #}
         </div>
     </div>
 </div>
