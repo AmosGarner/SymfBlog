@@ -15,16 +15,6 @@
                 {% include '@App/App/navigation.html.twig' with {'activePage' : ''}  %}
                 <div class="inner cover">
 
-                    {% if app.request.hasPreviousSession %}
-                        {% for type, messages in app.session.flashbag.all() %}
-                            {% for message in messages %}
-                                <div class="flash-{{ type }}">
-                                    {{ message }}
-                                </div>
-                            {% endfor %}
-                        {% endfor %}
-                    {% endif %}
-
                     {% block fos_user_content %}{% endblock %}
 
                 </div>

@@ -1,8 +1,38 @@
 {% trans_default_domain 'FOSUserBundle' %}
+<div class="container">
+    <div class="row">
+        {{ include('@FOSUser/Profile/Includes/action_menu.html.twig') }}
+        <div class="form-container well col-md-9 col-md-offset-1">
+            <div class="panel panel-default">
+                <div class="panel-body">
+                    <h1>Edit Your Account Information:</h1><br>
+                    <form action="{{ path('fos_user_profile_edit') }}" method="post">
+                        {{ form_start(form) }}
+                        <div class="form-group">
+                            <lable>Email</lable>
+                            {{ form_widget(form.email, { 'attr': {'class': 'form-control' } }) }}
+                            {{ form_errors(form.email) }}
+                        </div>
 
-{{ form_start(form, { 'action': path('fos_user_profile_edit'), 'attr': { 'class': 'fos_user_profile_edit' } }) }}
-    {{ form_widget(form) }}
-    <div>
-        <input type="submit" value="{{ 'profile.edit.submit'|trans }}" />
+                        <div class="form-group">
+                            <lable for="username">Username</lable>
+                            {{ form_widget(form.username, { 'attr': {'class': 'form-control' } }) }}
+                            {{ form_errors(form.username) }}
+                        </div>
+
+                        <div class="form-group">
+                            <lable>Password</lable>
+                            {{ form_widget(form.current_password, { 'attr': {'class': 'form-control'} }) }}
+                            {{ form_errors(form.current_password) }}
+                        </div>
+
+                        <div>
+                            <input class="btn btn-lg btn-primary btn-block" type="submit" value="Submit">
+                        </div>
+                        {{ form_end(form) }}
+                    </form>
+                </div>
+            </div>
+        </div>
     </div>
-{{ form_end(form) }}
+</div>
