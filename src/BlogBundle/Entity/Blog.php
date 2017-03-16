@@ -11,6 +11,7 @@ namespace BlogBundle\Entity;
 class Blog
 {
     private $id;
+    private $createdBy;
     private $name;
     private $description;
     private $createdDate;
@@ -40,6 +41,22 @@ class Blog
     public function setId($id)
     {
         $this->id = $id;
+    }
+
+    /**
+     * @return mixed
+     */
+    public function getCreatedBy()
+    {
+        return $this->createdBy;
+    }
+
+    /**
+     * @param mixed $createdBy
+     */
+    public function setCreatedBy($createdBy)
+    {
+        $this->createdBy = $createdBy;
     }
 
     /**
@@ -141,6 +158,7 @@ class Blog
     public function toArray(){
         return [
             'id' => $this->id,
+            'created_by' => $this->createdBy,
             'name' => $this->name,
             'description' => $this->description,
             'createdDate' => $this->createdDate,

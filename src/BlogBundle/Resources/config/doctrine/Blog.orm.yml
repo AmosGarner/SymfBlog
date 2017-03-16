@@ -6,6 +6,13 @@ BlogBundle\Entity\Blog:
       id:
         type: integer
         generator: { strategy: AUTO }
+    manyToOne:
+      createdBy:
+          targetEntity: UserBundle\Entity\User
+          joinColumn:
+              name: created_by
+              referencedColumnName: id
+              onDelete: cascade
     fields:
       name:
         type: string
