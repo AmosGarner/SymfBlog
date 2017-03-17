@@ -1,26 +1,82 @@
 <div class="container">
     <div class="well">
-        <h1>{{ app.user }}'s Blog: [name]</h1>
+        <h1>{{ app.user }}'s Blog: {{ blog.name }}</h1>
     </div>
-
-    {{ dump(blog) }}
 
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
                 <div class="col-md-3">
                     <p>
-                        <a class="btn btn-action"
+                        <a class="btn btn-lg btn-block btn-default"
                            href="{{ path('blog_front_end_list') }}">
                             <i class="glyphicon glyphicon-arrow-left"></i>
                             Back to Blogs
                         </a>
                     </p>
                 </div>
+                <div class="col-md-3 col-md-offset-6">
+                    <p>
+                        <a class="btn btn-lg btn-block btn-primary"
+                           href="{{ path('blog_front_end_modify', {'blogId':blog.id}) }}">
+                            <i class="glyphicon glyphicon-pencil"></i>
+                            Edit this Blog
+                        </a>
+                    </p>
+                </div>
+            </div>
+
+            {% if blog.isPublished == '1' %}
+                {% set status = "success" %}
+                {% set content = "This blog is published and available to the public." %}
+            {% else %}
+                {% set status = "danger" %}
+                {% set content = "This blog is not published and not available to the public." %}
+            {% endif %}
+
+            <div class="panel panel-{{ status }}">
+                <div class="page-title">Publication Status:</div>
+                <div class="label label-{{ status }}">
+                    {{ content }}
+                </div>
             </div>
 
             <div class="row">
                 <div class="profile-content-container">
+                    <div class="col-md-5">
+                        <div class="well">
+                            <h3>Blog Name: {{ blog.name }}</h3>
+                            <div class="panel panel-default">
+                                <div class="page-header">Blog Description:</div>
+                                <div class="panel-body">
+                                    {{ blog.description }}
+                                </div>
+                            </div>
+                            <div>
+                                <h4>
+                                    Created On:
+                                    {{ blog.createdDate|date('m/d/Y') }}
+                                    @
+                                    {{ blog.createdDate|date('h:m:s') }}
+                                </h4><h4>
+                                    Last Updated:
+                                    {{ blog.lastUpdatedDate|date('m/d/Y') }}
+                                    @
+                                    {{ blog.lastUpdatedDate|date('h:m:s') }}
+                                </h4>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-md-7">
+                        <div class="well">
+                            <h3>Blog Posts:</h3>
+                            <div class="panel panel-default">
+                                <div class="panel-body">
+
+                                </div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
             </div>
 
