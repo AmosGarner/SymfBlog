@@ -14,10 +14,6 @@ use Symfony\Component\HttpFoundation\Request;
 class BlogController extends ApiController
 {
 
-    public function listAction($userId){
-
-    }
-
     public function createAction(Request $request){
         $em = $this->getDoctrine()->getManager();
         $requestData = $request->request->all()['blog'];
@@ -28,7 +24,7 @@ class BlogController extends ApiController
 
         $response = $this->generateApiResponse('', 200);
 
-        return $this->render('@Blog/Blog/list.html.twig', array(
+        return $this->render('@Blog/Blog/operation.html.twig', array(
             'response' => $response,
         ));
     }

@@ -15,7 +15,13 @@ class FrontEndController extends Controller
 {
     public function listAction(){
         $em = $this->getDoctrine()->getManager();
-        return $this->render('@Blog/Blog/list.html.twig');
+        $blogRepo = $em->getRepository('BlogBundle:Blog');
+
+        $blogs = $blogRepo->findBy(['createdBy' => $this->getUser()]);
+
+        return $this->render('@Blog/Blog/list.html.twig', array(
+            'blogs' => $blogs
+        ));
     }
 
     public function readAction()
