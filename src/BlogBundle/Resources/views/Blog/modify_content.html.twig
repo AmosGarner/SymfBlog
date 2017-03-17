@@ -1,0 +1,61 @@
+<div class="container">
+    <div class="well">
+        <h1>Modify Blog: [Name]</h1>
+    </div>
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <p>
+                        <a class="btn btn-lg btn-primary btn-block" href="{{ path('blog_front_end_list') }}"><i class="glyphicon glyphicon-arrow-left"></i> Back to Blogs</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="well form-container">
+                <form action="{{ path('blog_api_modify', {'blogId': blog.id}) }}" method="post">
+                    {{ form_start(form) }}
+                    <div class="form-group">
+                        <label>Blog Name:</label>
+                        {{ form_widget(form.name, { 'attr': {'class': 'form-control', 'value': blog.name }}) }}
+                        {{ form_errors(form.name) }}
+                    </div>
+                    <div class="form-group">
+                        <label>Blog Description:</label>
+                        {{ form_widget(form.description, {
+                            'attr': {
+                                'class': 'form-control form-control-lg',
+                                'placeholder': 'Enter a description...',
+                                'rows': '3',
+                                'value': blog.description
+                            }
+                        }) }}
+                        {{ form_errors(form.description) }}
+                    </div>
+                    <div class="form-group">
+                        {% if blog.isPublished == '1' %}
+                            {% set toggleState = 'checked' %}
+                        {% else %}
+                            {% set toggleState = '' %}
+                        {% endif %}
+                        <label for="published">Is Published: </label>
+                        <input id="published" name="published" type="checkbox" {{ toggleState }} data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+                    </div>
+                    <div>
+                        <a class="btn btn-danger" href="{{ path('blog_front_end_list') }}"><i class="glyphicon glyphicon-remove"></i> Cancel</a>
+                        {{ form_widget(form.submit, {
+                            'attr': {
+                                'class': 'btn btn-success'
+                            }
+                        }) }}
+                    </div>
+                    {{ form_end(form) }}
+                </form>
+
+            </div>
+
+        </div>
+    </div>
+</div>
+

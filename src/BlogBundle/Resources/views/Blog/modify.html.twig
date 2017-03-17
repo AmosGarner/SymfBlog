@@ -1,1 +1,5 @@
-This will be the modify blog template, this also serves as the create template
+{% extends '@Blog/base.html.twig' %}
+
+{% block blog_content %}
+    {% include '@Blog/Blog/modify_content.html.twig' %}
+{% endblock %}

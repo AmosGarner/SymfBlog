@@ -6,7 +6,7 @@ blog_api_create:
 
 blog_api_modify:
     path: /blog/api/modify/{blogId}
-    methods: [PUT]
+    methods: [POST]
     defaults:
         _controller: BlogBundle:Blog:modify
     requirements:

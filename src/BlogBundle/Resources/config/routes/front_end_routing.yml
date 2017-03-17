@@ -20,8 +20,12 @@ blog_front_end_modify:
     path: /blog/modify/{blogId}
     defaults:
         _controller: BlogBundle:FrontEnd:modify
+    requirements:
+            blogId:   \d+
 
 blog_front_end_delete:
     path: /blog/delete/{blogId}
     defaults:
         _controller: BlogBundle:FrontEnd:delete
+    requirements:
+            blogId:   \d+
