@@ -32,10 +32,10 @@ class FrontEndController extends Controller
 
         if(!is_null($blog)){
             return $this->render('@Blog/Blog/read.html.twig', array(
-                'blog' => $blog
+                'blog' => $blog,
             ));
         }else{
-            return $this->render('@Blog/Blog/list.html.twig');
+            return $this->render('blo');
         }
     }
 

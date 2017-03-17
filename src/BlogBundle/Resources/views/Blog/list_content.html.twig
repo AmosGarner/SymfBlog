@@ -46,9 +46,11 @@
                                     {% endif %}
                                 </td>
                                 <td>
-                                    <a href="{{ path('blog_front_end_read') }}/{{ blog.id }}"><i class="glyphicon glyphicon-eye-open"></i> View</a> |
-                                    <a href="{{ path('blog_front_end_modify') }}/{{ blog.id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a> |
-                                    <a href="{{ path('blog_front_end_delete') }}/{{ blog.id }}"><i class="glyphicon glyphicon-trash"></i> Delete</a> |
+
+                                    <a href="{{ path('blog_front_end_read',{'blogId': blog.id})}}"><i class="glyphicon glyphicon-eye-open"></i> View</a> |
+                                    <a href="{{ path('blog_front_end_modify',{'blogId': blog.id})}}"><i class="glyphicon glyphicon-pencil"></i> Edit</a> |
+                                    <a href="{{ path('blog_front_end_delete',{'blogId': blog.id})}}"><i class="glyphicon glyphicon-trash"></i> Delete</a> |
+
                                 </td>
                             </tr>
                         {% endfor %}
