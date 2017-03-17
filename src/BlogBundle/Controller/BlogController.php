@@ -10,7 +10,6 @@ namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Blog;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\Response;
 
 class BlogController extends ApiController
 {
@@ -23,16 +22,11 @@ class BlogController extends ApiController
         $em = $this->getDoctrine()->getManager();
         $requestData = $request->request->all()['blog'];
 
-        $blog = new Blog();
-        $blog->setName($requestData['name']);
-        $blog->setDescription($requestData['description']);
-        $blog->setCreatedBy($this->getUser());
-
+        $blog = $this->createBlog($requestData);
         $em->persist($blog);
         $em->flush();
 
         $response = $this->generateApiResponse('', 200);
-
 
         return $this->render('@Blog/Blog/list.html.twig', array(
             'response' => $response,
@@ -51,8 +45,13 @@ class BlogController extends ApiController
 
     }
 
-    private function createBlog(){
+    private function createBlog($requestData){
+        $blog = new Blog();
+        $blog->setName($requestData['name']);
+        $blog->setDescription($requestData['description']);
+        $blog->setCreatedBy($this->getUser());
 
+        return $blog;
     }
 
     private function modifyBlog(){
