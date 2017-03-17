@@ -8,6 +8,8 @@
 
 namespace BlogBundle\Controller;
 
+use BlogBundle\Form\BlogCreateForm;
+use BlogBundle\Form\BlogEditForm;
 use BlogBundle\Form\BlogType;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 
@@ -40,15 +42,21 @@ class FrontEndController extends Controller
     }
 
     public function createAction(){
-        $form = $this->createForm(BlogType::class);
+        $form = $this->createForm(BlogCreateForm::class);
         return $this->render('@Blog/Blog/create.html.twig', array(
             'form' => $form->createView(),
         ));
     }
 
-    public function modifyAction(){
+    public function modifyAction($blogId){
+        $form = $this->createForm(BlogEditForm::class);
         $em = $this->getDoctrine()->getManager();
-        return $this->render('@Blog/Blog/modify.html.twig');
+        $blogRepo = $em->getRepository('BlogBundle:Blog');
+        $blog = $blogRepo->findOneBy(['id' => $blogId]);
+        return $this->render('@Blog/Blog/modify.html.twig', array(
+            'form' => $form->createView(),
+            'blog' => $blog,
+        ));
     }
 
     public function deleteAction()
