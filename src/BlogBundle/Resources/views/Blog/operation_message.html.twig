@@ -9,5 +9,13 @@
         {% set content = "Operation not completed due to errors!" %}
     {% endif %}
 
-    <div class="alert alert-{{ status }}">{{ content }}</div>
+    <div class="alert alert-{{ status }}">
+        {{ content }}<br>
+        <a
+                href="{{ path('blog_front_end_list') }}"
+                class="btn btn-block btn-action">
+            <i class="glyphicon glyphicon-arrow-left"> Back to Blogs List</i>
+        </a>
+
+    </div>
 {% endif %}

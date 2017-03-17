@@ -2,9 +2,7 @@
     <div class="well">
         <h1>{{ app.user }}'s Blogs</h1>
     </div>
-
-    {% include('@Blog/includes/operation_message.html.twig') %}
-
+    
     <div class="panel panel-default">
         <div class="panel-body">
             <div class="row">
@@ -29,16 +27,40 @@
                     </tr>
                 </thead>
                 <tbody>
-                    <tr>
-                        <td>[Blog Name]</td>
-                        <td>[Blog desc]</td>
-                        <td>[T/f]</td>
-                        <td>
-                            <a href="{{ path('blog_front_end_read') }}"><i class="glyphicon glyphicon-eye-open"></i> View</a> |
-                            <a href="{{ path('blog_front_end_modify') }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a> |
-                            <a href="{{ path('blog_front_end_delete') }}"><i class="glyphicon glyphicon-trash"></i> Delete</a> |
-                        </td>
-                    </tr>
+                    {% if blogs is defined and blogs is not empty %}
+                        {% for blog in blogs %}
+                            <tr>
+                                <td>{{ blog.name }}</td>
+                                <td>{{ blog.description }}</td>
+                                <td>
+                                    {% if blog.isPublished == "1" %}
+                                        <span class="label label-success">
+                                            <i class="glyphicon glyphicon-check"></i>
+                                            Published
+                                        </span>
+                                    {% else %}
+                                        <span class="label label-danger">
+                                            <i class="glyphicon glyphicon-remove"></i>
+                                            <strong>Not</strong>Published
+                                        </span>
+                                    {% endif %}
+                                </td>
+                                <td>
+                                    <a href="{{ path('blog_front_end_read') }}/{{ blog.id }}"><i class="glyphicon glyphicon-eye-open"></i> View</a> |
+                                    <a href="{{ path('blog_front_end_modify') }}/{{ blog.id }}"><i class="glyphicon glyphicon-pencil"></i> Edit</a> |
+                                    <a href="{{ path('blog_front_end_delete') }}/{{ blog.id }}"><i class="glyphicon glyphicon-trash"></i> Delete</a> |
+                                </td>
+                            </tr>
+                        {% endfor %}
+                    {% else %}
+                        <tr>
+                            <td colspan="4">
+                                <span class="label label-warning">
+                                    User <strong>Does not</strong> have any blogs!
+                                </span>
+                            </td>
+                        </tr>
+                    {% endif %}
                 </tbody>
             </table>
             {# dump(blogs) #}
