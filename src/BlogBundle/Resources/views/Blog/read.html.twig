@@ -1,1 +1,5 @@
-blog read data template.
+{% extends '@Blog/base.html.twig' %}
+
+{% block blog_content %}
+    {% include '@Blog/Blog/read_content.html.twig' %}
+{% endblock %}

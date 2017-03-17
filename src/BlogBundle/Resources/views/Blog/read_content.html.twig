@@ -1,0 +1,25 @@
+<div class="container">
+    <div class="well">
+        <h1>{{ app.user }}'s Blog: [name]</h1>
+    </div>
+
+    {{ dump(blog) }}
+
+    <div class="panel panel-default">
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-md-3">
+                    <p>
+                        <a class="btn btn-lg btn-primary btn-block" href="{{ path('blog_front_end_list') }}"><i class="glyphicon glyphicon-arrow-left"></i> Back to Blogs</a>
+                    </p>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="profile-content-container">
+                </div>
+            </div>
+
+        </div>
+    </div>
+</div>
