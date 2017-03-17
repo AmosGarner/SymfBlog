@@ -35,7 +35,7 @@ class FrontEndController extends Controller
                 'blog' => $blog,
             ));
         }else{
-            return $this->render('blo');
+            return $this->render('BlogBundle:Blog:list.html.twig');
         }
     }
 
