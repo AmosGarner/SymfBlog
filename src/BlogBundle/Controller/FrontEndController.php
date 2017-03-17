@@ -24,10 +24,19 @@ class FrontEndController extends Controller
         ));
     }
 
-    public function readAction()
+    public function readAction($blogId)
     {
         $em = $this->getDoctrine()->getManager();
-        return $this->render('@Blog/Blog/read.html.twig');
+        $blogRepo = $em->getRepository('BlogBundle:Blog');
+        $blog = $blogRepo->findOneBy(['id'=> $blogId]);
+
+        if(!is_null($blog)){
+            return $this->render('@Blog/Blog/read.html.twig', array(
+                'blog' => $blog
+            ));
+        }else{
+            return $this->render('@Blog/Blog/list.html.twig');
+        }
     }
 
     public function createAction(){

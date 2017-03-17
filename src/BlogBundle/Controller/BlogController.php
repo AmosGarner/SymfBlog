@@ -29,11 +29,7 @@ class BlogController extends ApiController
         ));
     }
 
-    public function modifyAction(Request $request, $blogId = ""){
-
-    }
-
-    public function readAction($blogId){
+    public function modifyAction(Request $request, $blogId){
 
     }
 
