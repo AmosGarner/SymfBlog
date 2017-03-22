@@ -34,13 +34,23 @@
                         {{ form_errors(form.description) }}
                     </div>
                     <div class="form-group">
+                        <label>Published:</label>
+
                         {% if blog.isPublished == '1' %}
                             {% set toggleState = 'checked' %}
                         {% else %}
                             {% set toggleState = '' %}
                         {% endif %}
-                        <label for="published">Is Published: </label>
-                        <input id="published" name="published" type="checkbox" {{ toggleState }} data-toggle="toggle" data-onstyle="success" data-offstyle="danger">
+
+                        {{ form_widget(form.published, {
+                            'attr': {
+                                'data-toggle': 'toggle',
+                                'data-onstyle': 'success',
+                                'data-offstyle': 'danger',
+                                'checked': toggleState
+                            }
+                        }) }}
+                        {{ form_errors(form.description) }}
                     </div>
                     <div>
                         <a class="btn btn-danger" href="{{ path('blog_front_end_list') }}"><i class="glyphicon glyphicon-remove"></i> Cancel</a>

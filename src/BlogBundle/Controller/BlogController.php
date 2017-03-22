@@ -9,8 +9,8 @@
 namespace BlogBundle\Controller;
 
 use BlogBundle\Entity\Blog;
+use DateTime;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\Validator\Constraints\DateTime;
 
 class BlogController extends ApiController
 {
@@ -38,10 +38,14 @@ class BlogController extends ApiController
         $blog = $blogRepo->findOneBy(['id' => $blogId]);
 
         $blog->setLastUpdatedDate(new DateTime());
+        $blog->setName($requestData['name']);
+        $blog->setDescription($requestData['description']);
+        $blog->setIsPublished($requestData['published']);
 
+        $em->persist($blog);
+        $em->flush();
 
         $response = $this->generateApiResponse('', 200);
-
         return $this->render('@Blog/Blog/operation.html.twig', array(
             'response' => $response,
         ));
