@@ -19,6 +19,7 @@ class BlogRepository extends EntityRepository
             ->from('BlogBundle:Blog', 'b')
             ->join('UserBundle:User', 'u')
             ->where('b.isPublished = :published')
+            ->andWhere('u.id = b.createdBy')
             ->setParameter('published', true)
             ->orderBy('b.lastUpdatedDate', 'DESC')
             ->groupBy('b')
