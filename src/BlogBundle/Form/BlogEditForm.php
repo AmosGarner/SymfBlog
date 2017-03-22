@@ -26,7 +26,8 @@ class BlogEditForm extends AbstractType
                 'constraints' => new Length(array('min' => 5))
             ))
             ->add('description', TextareaType::class, array(
-                'constraints' => new Length(array('min' => 5, 'max' => 250))
+                'constraints' => new Length(array('max' => 250)),
+                'required' => false,
             ))
             ->add('published', CheckboxType::class)
             ->add('submit', SubmitType::class, array('label' => 'Edit Blog'));

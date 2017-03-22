@@ -20,6 +20,7 @@ BlogBundle\Entity\Blog:
 
       description:
         type: text
+        nullable: true
 
       createdDate:
         type: datetime
