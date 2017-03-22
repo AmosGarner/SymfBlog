@@ -36,11 +36,15 @@
                                             {% for blog in blogs %}
                                                 <tr>
                                                     <td>
-                                                        <a href="{{ path('blog_front_end_read', {'blogId': blog.id}) }}">
+                                                        <a href="">
                                                             {{ blog.name }}
                                                         </a>
                                                     </td>
-                                                    <td>{{ blog.lastUpdatedDate | date('d/m/Y') }}</td>
+                                                    <td>
+                                                        {{ blog.lastUpdatedDate | date('m/d/Y') }}
+                                                        @
+                                                        {{ blog.lastUpdatedDate | date('h:m') }}
+                                                    </td>
                                                     <td>
                                                         <a href="">
                                                             {{ blog.username }}
@@ -56,9 +60,36 @@
                         </div>
                         <div class="col-md-5 col-md-offset-2">
                             <div class="panel panel-default">
-                                <div class="panel-heading">New Authors</div>
+                                <div class="panel-heading">
+                                    <h2>New Authors</h2>
+                                </div>
                                 <div class="panel-body">
-                                    {{ dump(authors) }}
+                                    <div class="well">
+                                        <table class="table table-bordered">
+                                            <thead>
+                                            <tr>
+                                                <th class="text-center">Author Username:</th>
+                                                <th class="text-center">Last login:</th>
+                                            </tr>
+                                            </thead>
+                                            <tbody>
+                                            {% for author in authors %}
+                                                <tr>
+                                                    <td>
+                                                        <a href="">
+                                                            {{ author.username }}
+                                                        </a>
+                                                    </td>
+                                                    <td>
+                                                        {{ author.lastLogin | date('m/d/Y') }}
+                                                        @
+                                                        {{ author.lastLogin | date('h:m') }}
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
