@@ -12,14 +12,12 @@
                 <br>
                     <div class="profile-info">
                         <h3>Username: {{ app.user }}</h3>
-                        <h4>Number of Blogs: []</h4>
                         <h4>Email
-                            <a href="#">
+                            <a href="mailto:{{ app.user.email }}">
                                 <i class="glyphicon glyphicon-envelope"></i>
                             </a>
                             : {{ app.user.email }}
                         </h4>
-                        <h4>Account Created: [date] @ [time]</h4>
                         <h4>
                             Last Online: {{ app.user.lastlogin.date|date('m/d/Y') }}
                             @
