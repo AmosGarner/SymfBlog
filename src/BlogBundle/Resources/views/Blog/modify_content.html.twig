@@ -14,7 +14,7 @@
             </div>
 
             <div class="well form-container">
-                <form action="{{ path('blog_api_modify', {'blogId': blog.id}) }}" method="post">
+                <form action="{{ path('blog_api_modify', {'blogId': blog.id}) }}" method="post" novalidate>
                     {{ form_start(form) }}
                     <div class="form-group">
                         <label>Blog Name:</label>

@@ -40,7 +40,15 @@ class BlogController extends ApiController
         $blog->setLastUpdatedDate(new DateTime());
         $blog->setName($requestData['name']);
         $blog->setDescription($requestData['description']);
-        $blog->setIsPublished($requestData['published']);
+
+        if(isset($requestData['published']))
+        {
+            $blog->setIsPublished(true);
+        }
+        else{
+            $blog->setIsPublished(false);
+        }
+
 
         $em->persist($blog);
         $em->flush();
