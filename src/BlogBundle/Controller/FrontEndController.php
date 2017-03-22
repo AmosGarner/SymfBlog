@@ -59,9 +59,13 @@ class FrontEndController extends Controller
         ));
     }
 
-    public function deleteAction()
+    public function deleteAction($blogId)
     {
         $em = $this->getDoctrine()->getManager();
-        return $this->render('@Blog/Blog/delete.html.twig');
+        $blogRepo = $em->getRepository('BlogBundle:Blog');
+        $blog = $blogRepo->findOneBy(['id' => $blogId]);
+        return $this->render('@Blog/Blog/delete.html.twig', array(
+            'blog' => $blog,
+        ));
     }
 }
