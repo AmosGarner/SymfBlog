@@ -60,7 +60,14 @@ class BlogController extends ApiController
     }
 
     public function deleteAction($blogId){
-
+        $em = $this->getDoctrine()->getManager();
+        $blogRepo = $em->getRepository('BlogBundle:Blog');
+        $blog = $blogRepo->findOneBy(['id' => $blogId]);
+        $em->remove($blog);
+        $em->flush();
+        return $this->render('@Blog/Blog/operation.html.twig', array(
+            'response' => $this->generateApiResponse(),
+        ));
     }
 
     private function createBlog($requestData){

@@ -14,7 +14,7 @@ blog_api_modify:
 
 blog_api_delete:
     path: /blog/api/delete/{blogId}
-    methods: [DELETE]
+    methods: [GET]
     defaults:
         _controller: BlogBundle:Blog:delete
     requirements:

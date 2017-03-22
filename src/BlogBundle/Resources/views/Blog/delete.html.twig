@@ -1,1 +1,5 @@
-Delete blog template
+{% extends '@Blog/base.html.twig' %}
+
+{% block blog_content %}
+    {% include '@Blog/Blog/delete_content.html.twig' %}
+{% endblock %}
