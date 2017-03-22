@@ -23,12 +23,13 @@
                     </div>
                     <div class="form-group">
                         <label>Blog Description:</label>
-                        {{ form_widget(form.description, {
+                        {{ form_widget(form.description,
+                        {
+                            'value': blog.description,
                             'attr': {
                                 'class': 'form-control form-control-lg',
                                 'placeholder': 'Enter a description...',
                                 'rows': '3',
-                                'value': blog.description
                             }
                         }) }}
                         {{ form_errors(form.description) }}
@@ -37,19 +38,27 @@
                         <label>Published:</label>
 
                         {% if blog.isPublished == '1' %}
-                            {% set toggleState = 'checked' %}
-                        {% else %}
-                            {% set toggleState = '' %}
-                        {% endif %}
-
-                        {{ form_widget(form.published, {
-                            'attr': {
+                            {{ form_widget(form.published,
+                            {
+                                'checked': 'checked',
+                                'attr': {
                                 'data-toggle': 'toggle',
                                 'data-onstyle': 'success',
                                 'data-offstyle': 'danger',
-                                'checked': toggleState
                             }
-                        }) }}
+                            }) }}
+                        {% else %}
+                            {{ form_widget(form.published,
+                            {
+                                'attr': {
+                                'data-toggle': 'toggle',
+                                'data-onstyle': 'success',
+                                'data-offstyle': 'danger',
+                            }
+                            }) }}
+                        {% endif %}
+
+
                         {{ form_errors(form.description) }}
                     </div>
                     <div>
