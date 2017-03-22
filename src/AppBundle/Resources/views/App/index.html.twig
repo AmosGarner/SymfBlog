@@ -21,6 +21,22 @@
                             <div class="panel panel-default">
                                 <div class="panel-heading">Recently Published Blogs</div>
                                 <div class="panel-body">
+                                    <div class="well">
+                                        <table class="table table-bordered">
+                                            <thead></thead>
+                                            <tbody>
+                                            {% for blog in blogs %}
+                                                <tr>
+                                                    <td>
+                                                        <a href="{{ path('blog_front_end_read', {'blogId': blog.id}) }}">
+                                                            {{ blog.name }}
+                                                        </a>
+                                                    </td>
+                                                </tr>
+                                            {% endfor %}
+                                            </tbody>
+                                        </table>
+                                    </div>
                                 </div>
                             </div>
                         </div>
