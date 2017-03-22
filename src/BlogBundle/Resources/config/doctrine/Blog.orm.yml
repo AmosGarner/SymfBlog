@@ -2,6 +2,7 @@
 BlogBundle\Entity\Blog:
     type: entity
     table:  SymfBlog_Blog
+    repositoryClass: BlogBundle\Repository\BlogRepository
     id:
       id:
         type: integer
