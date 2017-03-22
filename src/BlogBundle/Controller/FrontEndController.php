@@ -26,6 +26,16 @@ class FrontEndController extends Controller
         ));
     }
 
+    public function detailAction($blogId){
+        $em = $this->getDoctrine()->getManager();
+        $blogRepo = $em->getRepository('BlogBundle:Blog');
+        $blog = $blogRepo->findOneBy(['id'=> $blogId]);
+
+        return $this->render('@Blog/Blog/read.html.twig', array(
+            'blog' => $blog,
+        ));
+    }
+
     public function readAction($blogId)
     {
         $em = $this->getDoctrine()->getManager();

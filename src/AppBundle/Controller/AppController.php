@@ -10,7 +10,11 @@ class AppController extends Controller
     {
         $em = $this->getDoctrine()->getManager();
         $blogRepo = $em->getRepository('BlogBundle:Blog');
-        return $this->render('AppBundle:App:index.html.twig');
+        $blogs = $blogRepo->getRecentBlogs();
+
+        return $this->render('AppBundle:App:index.html.twig', array(
+            'blogs' => $blogs,
+        ));
     }
 
     public function aboutAction(){
