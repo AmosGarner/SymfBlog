@@ -19,17 +19,31 @@
                     <div class="row">
                         <div class="col-md-5">
                             <div class="panel panel-default">
-                                <div class="panel-heading">Recently Published Blogs</div>
+                                <div class="panel-heading">
+                                    <h2>Recently Published Blogs</h2>
+                                </div>
                                 <div class="panel-body">
                                     <div class="well">
                                         <table class="table table-bordered">
-                                            <thead></thead>
+                                            <thead>
+                                                <tr>
+                                                    <th class="text-center">Blog Name:</th>
+                                                    <th class="text-center">Date Created:</th>
+                                                    <th class="text-center">Author:</th>
+                                                </tr>
+                                            </thead>
                                             <tbody>
                                             {% for blog in blogs %}
                                                 <tr>
                                                     <td>
                                                         <a href="{{ path('blog_front_end_read', {'blogId': blog.id}) }}">
                                                             {{ blog.name }}
+                                                        </a>
+                                                    </td>
+                                                    <td>{{ blog.lastUpdatedDate | date('d/m/Y') }}</td>
+                                                    <td>
+                                                        <a href="">
+                                                            {{ blog.username }}
                                                         </a>
                                                     </td>
                                                 </tr>

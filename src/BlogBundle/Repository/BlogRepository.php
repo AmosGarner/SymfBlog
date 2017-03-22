@@ -15,11 +15,13 @@ class BlogRepository extends EntityRepository
 
     public function getRecentBlogs(){
         return $this->getEntityManager()->createQueryBuilder()
-            ->select('b')
+            ->select('b.id', 'b.name','b.lastUpdatedDate', 'u.username')
             ->from('BlogBundle:Blog', 'b')
+            ->join('UserBundle:User', 'u')
             ->where('b.isPublished = :published')
             ->setParameter('published', true)
             ->orderBy('b.lastUpdatedDate', 'DESC')
+            ->groupBy('b')
             ->getQuery()
             ->getArrayResult();
     }
