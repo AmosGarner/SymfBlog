@@ -8,6 +8,8 @@ class AppController extends Controller
 {
     public function indexAction()
     {
+        $em = $this->getDoctrine()->getManager();
+        $blogRepo = $em->getRepository('BlogBundle:Blog');
         return $this->render('AppBundle:App:index.html.twig');
     }
 
