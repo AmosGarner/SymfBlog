@@ -55,14 +55,10 @@
                             <div>
                                 <h4>
                                     Created On:
-                                    {{ blog.createdDate|date('m/d/Y') }}
-                                    @
-                                    {{ blog.createdDate|date('h:m:s') }}
+                                    {{ blog.createdDate|date("F jS \\@ g:ia") }}
                                 </h4><h4>
                                     Last Updated:
-                                    {{ blog.lastUpdatedDate|date('m/d/Y') }}
-                                    @
-                                    {{ blog.lastUpdatedDate|date('h:m:s') }}
+                                    {{ blog.lastUpdatedDate|date("F jS \\@ g:ia") }}
                                 </h4>
                             </div>
                         </div>
