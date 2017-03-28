@@ -41,13 +41,15 @@ class BlogController extends ApiController
         $blog->setName($requestData['name']);
         $blog->setDescription($requestData['description']);
 
-        if(isset($requestData['published']))
-        {
-            $blog->setIsPublished(true);
-        }
-        else{
-            $blog->setIsPublished(false);
-        }
+//        if(isset($requestData['published']))
+//        {
+//            $blog->setIsPublished(true);
+//        }
+//        else{
+//            $blog->setIsPublished(false);
+//        }
+
+        $blog->setIsPublished(isset($requestData['published']);
 
 
         $em->persist($blog);
