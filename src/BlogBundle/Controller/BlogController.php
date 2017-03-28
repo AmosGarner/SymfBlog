@@ -49,7 +49,7 @@ class BlogController extends ApiController
 //            $blog->setIsPublished(false);
 //        }
 
-        $blog->setIsPublished(isset($requestData['published']);
+        $blog->setIsPublished(isset($requestData['published']));
 
 
         $em->persist($blog);
