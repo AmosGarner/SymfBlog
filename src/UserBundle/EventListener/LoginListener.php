@@ -10,12 +10,8 @@ namespace UserBundle\EventListener;
 
 
 use Doctrine\ORM\EntityManager;
-use FOS\UserBundle\Event\FormEvent;
-use FOS\UserBundle\FOSUserEvents;
-use Symfony\Component\EventDispatcher\EventSubscriberInterface;
 use Symfony\Component\Security\Core\Authentication\Token\Storage\TokenStorage;
 use Symfony\Component\Security\Http\Event\InteractiveLoginEvent;
-use Symfony\Component\Security\Http\SecurityEvents;
 use UserBundle\Entity\UserLogin;
 
 class LoginListener
@@ -31,7 +27,7 @@ class LoginListener
 
     public function onSecurityInteractiveLogin(InteractiveLoginEvent $event)
     {
-        $userLogin = new userLogin();
+        $userLogin = new UserLogin();
         $user = $this->tokenStorage->getToken()->getUser();
         $userLogin->setUserId($user);
         $this->entityManager->persist($userLogin);
