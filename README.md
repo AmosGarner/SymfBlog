@@ -1,14 +1,20 @@
-Project Info:
+# SymfBlog
+Python scripted spirograph generator using the turtle library.
+
+## Project Info:
 * Name: SymfBlog
 * Version: 1.0
 * Description: Symfony 3 application with multi user fuctonality and CRUD operations on Blog entities.
 * Author: Amos Garner
 * License: MIT
 
-How to Install:
-* Git Clone: ```git clone https://github.com/AmosGarner/SymfBlog.git```
-* Open Project Dir.: ```cd SymfBlog```
-* Composer Install: ```composer install```
+## Install Instructions:
+* Git Repository into Project Directory:
+```git clone https://github.com/AmosGarner/SymfBlog.git```
+* Open Project Dir.: 
+```cd SymfBlog```
+* Composer Install: 
+```composer install```
   * Install Options:
 	  * Everything should be default expect db name which is ```SymfBlog```
 * (Optional Tools) 
