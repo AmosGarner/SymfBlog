@@ -1,5 +1,5 @@
 # SymfBlog
-Python scripted spirograph generator using the turtle library.
+Symfony 3 application with multi user fuctonality and CRUD operations on Blog entities
 
 ## Project Info:
 * Name: SymfBlog
